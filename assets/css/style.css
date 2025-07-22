@@ -585,6 +585,20 @@ body {
     border-top: 1px solid #34495e;
 }
 
+.footer-certifications {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.enamad-logo img {
+    transition: transform 0.3s ease;
+}
+
+.enamad-logo img:hover {
+    transform: scale(1.05);
+}
+
 /* Pagination */
 .pagination {
     display: flex;

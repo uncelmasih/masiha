@@ -51,8 +51,15 @@
                 <div class="copyright">
                     <p>&copy; 1402 <?php echo SITE_NAME; ?>. تمامی حقوق محفوظ است.</p>
                 </div>
-                <div class="payment-methods">
-                    <img src="assets/images/payment-methods.png" alt="روش های پرداخت" style="height: 30px;">
+                <div class="footer-certifications">
+                    <div class="payment-methods">
+                        <img src="assets/images/payment-methods.png" alt="روش های پرداخت" style="height: 30px;">
+                    </div>
+                    <div class="enamad-logo">
+                        <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=629035&Code=6VUY7x0yIJWPMTzuIrHE7oEDkIJUNtRT'>
+                            <img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=629035&Code=6VUY7x0yIJWPMTzuIrHE7oEDkIJUNtRT' alt='اینماد' style='cursor:pointer; height: 50px; margin-right: 15px;' code='6VUY7x0yIJWPMTzuIrHE7oEDkIJUNtRT'>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
