@@ -43,8 +43,8 @@ require_once 'includes/header.php';
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <h2>بهترین محصولات گیمینگ</h2>
-            <p>با کیفیت ترین و جدیدترین محصولات گیمینگ را از ما تهیه کنید</p>
+            <h2>گیفت کارت و محصولات دیجیتالی</h2>
+            <p>خرید سریع و امن گیفت کارت، اکانت پریمیوم و کلیدهای بازی</p>
             <a href="products.php" class="btn">مشاهده محصولات</a>
         </div>
     </section>
@@ -52,32 +52,22 @@ require_once 'includes/header.php';
     <!-- Categories Section -->
     <section class="section">
         <div class="section-title">
-            <h2>دسته بندی محصولات</h2>
-            <p>محصولات گیمینگ را بر اساس دسته بندی انتخاب کنید</p>
+            <h2>دسته‌بندی محصولات</h2>
+            <p>انواع گیفت کارت و محصولات دیجیتالی</p>
         </div>
         
         <div class="categories-grid">
             <?php if (!empty($categories)): ?>
-                <?php 
-                $category_icons = [
-                    'لپ تاپ گیمینگ' => 'fas fa-laptop',
-                    'کارت گرافیک' => 'fas fa-microchip',
-                    'پردازنده' => 'fas fa-cpu',
-                    'رم' => 'fas fa-memory',
-                    'هارد و SSD' => 'fas fa-hdd',
-                    'لوازم جانبی' => 'fas fa-gamepad'
-                ];
-                ?>
                 <?php foreach ($categories as $category): ?>
                     <a href="category.php?id=<?php echo $category['id']; ?>" class="category-card">
                         <div class="category-icon">
-                            <i class="<?php echo $category_icons[$category['name']] ?? 'fas fa-cube'; ?>"></i>
+                            <i class="fas fa-gift"></i>
                         </div>
                         <div class="category-name"><?php echo htmlspecialchars($category['name']); ?></div>
                     </a>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p class="text-center">هنوز دسته بندی تعریف نشده است.</p>
+                <p class="text-center">هنوز دسته‌بندی تعریف نشده است.</p>
             <?php endif; ?>
         </div>
     </section>
@@ -85,8 +75,8 @@ require_once 'includes/header.php';
     <!-- Featured Products Section -->
     <section class="section">
         <div class="section-title">
-            <h2>محصولات ویژه</h2>
-            <p>برترین و جدیدترین محصولات گیمینگ</p>
+            <h2>محصولات پرفروش</h2>
+            <p>پرطرفدارترین گیفت کارت‌ها و محصولات دیجیتالی</p>
         </div>
         
         <div class="products-grid">
@@ -162,18 +152,18 @@ require_once 'includes/header.php';
         <div class="categories-grid">
             <div class="category-card">
                 <div class="category-icon">
-                    <i class="fas fa-shipping-fast"></i>
+                    <i class="fas fa-bolt"></i>
                 </div>
-                <div class="category-name">ارسال سریع</div>
-                <p style="margin-top: 10px; color: #666;">ارسال رایگان برای خریدهای بالای 2 میلیون تومان</p>
+                <div class="category-name">تحویل فوری</div>
+                <p style="margin-top: 10px; color: #666;">دریافت کد یا اکانت در کمتر از 5 دقیقه</p>
             </div>
             
             <div class="category-card">
                 <div class="category-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <div class="category-name">گارانتی معتبر</div>
-                <p style="margin-top: 10px; color: #666;">تمامی محصولات دارای گارانتی معتبر</p>
+                <div class="category-name">اورجینال 100%</div>
+                <p style="margin-top: 10px; color: #666;">تمامی محصولات اورجینال و معتبر</p>
             </div>
             
             <div class="category-card">
@@ -181,15 +171,15 @@ require_once 'includes/header.php';
                     <i class="fas fa-headset"></i>
                 </div>
                 <div class="category-name">پشتیبانی 24/7</div>
-                <p style="margin-top: 10px; color: #666;">پشتیبانی آنلاین در تمام روزهای هفته</p>
+                <p style="margin-top: 10px; color: #666;">پشتیبانی آنلاین در تمام ساعات</p>
             </div>
             
             <div class="category-card">
                 <div class="category-icon">
-                    <i class="fas fa-medal"></i>
+                    <i class="fas fa-money-bill-wave"></i>
                 </div>
-                <div class="category-name">کیفیت برتر</div>
-                <p style="margin-top: 10px; color: #666;">محصولات اورجینال و با کیفیت</p>
+                <div class="category-name">قیمت مناسب</div>
+                <p style="margin-top: 10px; color: #666;">بهترین قیمت در بازار</p>
             </div>
         </div>
     </section>
