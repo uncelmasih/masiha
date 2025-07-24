@@ -1,225 +1,154 @@
-# 🎮 فروشگاه گیمینگ استور
+# 🛒 BNG Shop - فروشگاه گیفت کارت و محصولات دیجیتالی
 
-فروشگاه آنلاین محصولات گیمینگ با PHP و MySQL
+فروشگاه آنلاین مدرن و کامل برای فروش گیفت کارت، پرداخت‌های درون برنامه‌ای و محصولات دیجیتال
 
 ## ✨ ویژگی‌ها
 
-### 🔐 امنیت
-- محافظت CSRF
-- Hash کردن رمز عبور با bcrypt
-- Session management امن
-- Validation و sanitization ورودی‌ها
-- فایل .htaccess برای امنیت
+### 🎯 **محصولات و خدمات**
+- 🎮 گیفت کارت‌های مختلف (Steam, Google Play, PlayStation, Xbox و...)
+- 📱 پرداخت‌های درون برنامه‌ای (PUBG UC, Free Fire, Clash of Clans و...)
+- 🎪 اکانت‌های پریمیوم (Netflix, Spotify, YouTube Premium)
+- 💻 بازی‌های PC و کنسول
+- ☁️ خدمات آنلاین (VPN, آنتی‌ویروس)
 
-### 🛒 فروشگاه
-- نمایش محصولات با تصاویر
-- دسته‌بندی محصولات
-- جستجو و فیلتر پیشرفته
-- سبد خرید Ajax-based
-- مدیریت موجودی
-- محاسبه تخفیف و هزینه ارسال
+### 🚀 **ویژگی‌های فنی**
+- **اسلایدر تصاویر** جذاب در صفحه اصلی
+- **مگا منوی 4 ستونه** برای دسته‌بندی محصولات
+- **طراحی ریسپانسیو** و موبایل فرندلی
+- **سیستم پرداخت زرین‌پال** کاملاً عملکرد
+- **پنل مدیریت** کامل و حرفه‌ای
+- **سیستم سبد خرید** Ajax-based
+- **تحویل فوری** محصولات دیجیتال
 
-### 👤 مدیریت کاربران
-- ثبت نام و ورود
-- پنل کاربری
-- سیستم نقش‌ها (Admin/User)
+### 🔒 **امنیت**
+- **CSRF Protection** پیشرفته
+- **SQL Injection Prevention** با PDO
+- **Password Hashing** با bcrypt
+- **Session Management** امن
+- **Input Validation** کامل
 
-### 📱 رابط کاربری
-- طراحی Responsive
-- زیبا و مدرن
-- پشتیبانی از RTL
-- انیمیشن‌ها و Effects
+## 📋 **مشخصات فنی**
 
-## 🚀 راه‌اندازی
+### 🛠️ **تکنولوژی‌ها**
+- **Backend:** PHP 7.4+ / MySQL
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Framework CSS:** Custom RTL Design
+- **Icons:** Font Awesome 6.4
+- **Fonts:** Vazir Persian Font
 
-### پیش‌نیازها
-- PHP 7.4+
-- MySQL 5.7+
-- Apache/Nginx
-- PDO MySQL extension
+### 📦 **نیازمندی‌ها**
+- PHP 7.4 یا بالاتر
+- MySQL 5.7 یا بالاتر
+- Apache/Nginx وب سرور
+- mod_rewrite فعال
+- cURL Extension
+- PDO MySQL Extension
 
-### مراحل نصب
+## 🚀 **نصب و راه‌اندازی**
 
-1. **کپی فایل‌ها**
+### 1️⃣ **آپلود فایل‌ها**
 ```bash
-# فایل‌ها را در دایرکتوری وب سرور کپی کنید
-cp -r * /var/www/html/gaming-store/
+# آپلود تمام فایل‌ها به public_html/
+# یا ساب‌فولدر مورد نظر
 ```
 
-2. **ایجاد دیتابیس**
-```sql
-CREATE DATABASE gaming_store CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-
-3. **تنظیم دیتابیس**
-فایل `config/database.php` را ویرایش کنید:
-```php
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'gaming_store');
-define('DB_USER', 'your_username');
-define('DB_PASS', 'your_password');
-```
-
-4. **تنظیم کانفیگ**
-فایل `config/config.php` را ویرایش کنید:
-```php
-define('SITE_URL', 'http://your-domain.com');
-define('SITE_NAME', 'گیمینگ استور');
-define('ADMIN_EMAIL', 'admin@your-domain.com');
-```
-
-5. **اجرای Setup**
-```
-http://your-domain.com/setup.php
-```
-
-6. **حذف فایل Setup** (اختیاری)
+### 2️⃣ **تنظیم دیتابیس**
 ```bash
-rm setup.php
+# 1. دیتابیس جدید بسازید
+# 2. فایل database/schema.sql را import کنید
+# 3. اطلاعات دیتابیس را در config/database.php وارد کنید
 ```
 
-## 📂 ساختار فایل‌ها
-
-```
-gaming-store/
-├── config/                 # فایل‌های تنظیمات
-│   ├── config.php          # تنظیمات اصلی
-│   └── database.php        # اتصال دیتابیس
-├── database/               # فایل‌های دیتابیس
-│   └── schema.sql          # ساختار جداول
-├── includes/               # فایل‌های include
-│   ├── header.php          # هدر سایت
-│   └── footer.php          # فوتر سایت
-├── assets/                 # منابع استاتیک
-│   ├── css/                # فایل‌های CSS
-│   └── js/                 # فایل‌های JavaScript
-├── uploads/                # فایل‌های آپلود شده
-│   ├── products/           # تصاویر محصولات
-│   ├── categories/         # تصاویر دسته‌ها
-│   └── users/              # تصاویر کاربران
-├── index.php               # صفحه اصلی
-├── products.php            # لیست محصولات
-├── product.php             # جزئیات محصول
-├── cart.php                # سبد خرید
-├── login.php               # ورود
-├── register.php            # ثبت نام
-├── contact.php             # تماس با ما
-├── about.php               # درباره ما
-└── setup.php               # راه‌اندازی اولیه
+### 3️⃣ **تنظیم مجوزها**
+```bash
+chmod 755 uploads/
+chmod 644 *.php
+chmod 644 assets/css/*.css
+chmod 644 assets/js/*.js
 ```
 
-## 👥 کاربران پیش‌فرض
-
-پس از راه‌اندازی، کاربر مدیر زیر ایجاد می‌شود:
-
-- **ایمیل:** admin@gaming-store.com
-- **رمز عبور:** admin123
-
-⚠️ **هشدار امنیتی:** حتماً رمز عبور مدیر را تغییر دهید!
-
-## 🔧 تنظیمات پیشرفته
-
-### تنظیم Timezone
+### 4️⃣ **تنظیم درگاه پرداخت**
 ```php
 // در config/config.php
-date_default_timezone_set('Asia/Tehran');
+define('ZARINPAL_MERCHANT', 'YOUR_MERCHANT_ID');
 ```
 
-### تنظیم حجم آپلود
-```php
-// در config/config.php
-define('MAX_FILE_SIZE', 5 * 1024 * 1024); // 5MB
+## 📊 **ساختار دیتابیس**
+
+### 🗃️ **جداول اصلی**
+- **users** - کاربران و ادمین‌ها
+- **categories** - دسته‌بندی محصولات
+- **products** - محصولات دیجیتال
+- **cart** - سبد خرید کاربران
+- **orders** - سفارشات و پرداخت‌ها
+- **order_items** - آیتم‌های سفارش
+- **payment_logs** - لاگ پرداخت‌ها
+
+## 🎨 **طراحی و UI/UX**
+
+### 🌟 **ویژگی‌های طراحی**
+- **RTL Support** کامل برای فارسی
+- **Dark/Light Theme** سازگار
+- **Mobile First** طراحی
+- **Modern CSS Grid** و Flexbox
+- **Smooth Animations** و Transitions
+- **Loading States** و Micro-interactions
+
+### 📱 **ریسپانسیو**
+- Desktop: 1200px+
+- Tablet: 768px - 1199px
+- Mobile: 320px - 767px
+
+## 🔧 **تنظیمات پیشرفته**
+
+### ⚙️ **فایل‌های کانفیگ**
+```
+config/
+├── config.php      # تنظیمات اصلی سایت
+├── database.php    # اتصال دیتابیس
+└── .htaccess       # تنظیمات Apache
 ```
 
-### تنظیم ارسال رایگان
-```php
-// در cart.php خط 32
-$shipping_cost = $subtotal >= 2000000 ? 0 : 50000;
-```
+### 🛡️ **امنیت**
+- HTTPS اجباری
+- SQL Injection محافظت
+- XSS Prevention
+- CSRF Token Validation
+- Session Hijacking Prevention
 
-## 🎨 سفارشی‌سازی
+## 📈 **عملکرد**
 
-### تغییر رنگ‌ها
-فایل `assets/css/style.css` را ویرایش کنید:
-```css
-:root {
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
-    --accent-color: #ff6b6b;
-}
-```
+### ⚡ **بهینه‌سازی**
+- **CSS/JS Minification** آماده
+- **Image Optimization** پشتیبانی
+- **Browser Caching** تنظیم شده
+- **Database Indexing** بهینه
+- **Lazy Loading** برای تصاویر
 
-### اضافه کردن دسته‌بندی جدید
-```sql
-INSERT INTO categories (name, description) VALUES ('دسته جدید', 'توضیحات');
-```
+## 🎯 **اطلاعات تماس**
 
-### اضافه کردن محصول جدید
-```sql
-INSERT INTO products (name, description, price, category_id, brand, stock_quantity) 
-VALUES ('محصول جدید', 'توضیحات', 1000000, 1, 'برند', 10);
-```
+### 📞 **پشتیبانی**
+- **تلفن:** 09352233616
+- **ایمیل:** bngshop@gmail.com
+- **ادمین:** masiha1380@bngshop.ir
+- **ساعت کاری:** 10 صبح تا 11 شب
 
-## 🛡️ امنیت
+### 🌐 **لینک‌ها**
+- **سایت:** [bngshop.ir](https://bngshop.ir)
+- **زرین‌پال:** [zarinp.al/masiha](https://zarinp.al/masiha)
 
-### توصیه‌های امنیتی
-1. همیشه از HTTPS استفاده کنید
-2. رمزهای عبور قوی انتخاب کنید
-3. به‌روزرسانی‌های PHP را نصب کنید
-4. دسترسی‌های فایل‌ها را محدود کنید
-5. Backup منظم تهیه کنید
-
-### فایل .htaccess
-```apache
-# امنیت اضافی
-<Files "*.sql">
-    Require all denied
-</Files>
-
-<Files "config.php">
-    Require all denied
-</Files>
-```
-
-## 🐛 عیب‌یابی
-
-### مشکلات متداول
-
-**خطای اتصال دیتابیس:**
-- اطلاعات دیتابیس را بررسی کنید
-- مطمئن شوید MySQL در حال اجرا است
-
-**تصاویر نمایش داده نمی‌شوند:**
-- مجوزهای پوشه uploads را بررسی کنید
-- مسیر فایل‌ها را چک کنید
-
-**صفحه سفید:**
-- error_log PHP را بررسی کنید
-- display_errors را فعال کنید
-
-## 📚 منابع اضافی
-
-- [مستندات PHP](https://www.php.net/docs.php)
-- [راهنمای MySQL](https://dev.mysql.com/doc/)
-- [آموزش PDO](https://www.php.net/manual/en/book.pdo.php)
-
-## 🤝 مشارکت
-
-برای مشارکت در پروژه:
-1. Fork کنید
-2. تغییرات خود را اعمال کنید
-3. Pull Request ارسال کنید
-
-## 📞 پشتیبانی
-
-برای سوالات و پشتیبانی:
-- ایمیل: support@gaming-store.com
-- تلفن: 021-12345678
-
-## 📄 مجوز
+## 📝 **مجوز**
 
 این پروژه تحت مجوز MIT منتشر شده است.
 
+## 🤝 **مشارکت**
+
+برای مشارکت در این پروژه:
+1. Fork کنید
+2. Branch جدید بسازید
+3. تغییرات خود را commit کنید
+4. Pull Request ارسال کنید
+
 ---
 
-**نکته:** این یک پروژه آموزشی است. برای استفاده در محیط production، تست‌ها و بهینه‌سازی‌های اضافی انجام دهید.
+**ساخته شده با ❤️ برای BNG Shop**

@@ -8,6 +8,7 @@ require_once 'database.php';
 define('SITE_NAME', 'BNG Shop');
 define('SITE_URL', 'https://bngshop.ir');
 define('SITE_EMAIL', 'bngshop@gmail.com');
+define('ADMIN_EMAIL', 'masiha1380@bngshop.ir');
 define('SITE_PHONE', '09352233616');
 define('SITE_ADDRESS', 'تهران، خیابان ولیعصر');
 
@@ -28,7 +29,7 @@ define('MAX_FILE_SIZE', 5 * 1024 * 1024); // 5MB
 // Email Configuration
 define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_PORT', 587);
-define('SMTP_USERNAME', SITE_EMAIL);
+define('SMTP_USERNAME', ADMIN_EMAIL);
 define('SMTP_PASSWORD', ''); // Add your email password here
 
 // Error Reporting
