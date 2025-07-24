@@ -57,23 +57,71 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.php"><i class="fas fa-home"></i> خانه</a></li>
-                    <li class="dropdown">
-                        <a href="products.php"><i class="fas fa-gamepad"></i> محصولات <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <?php
-                            try {
-                                $stmt = $pdo->query("SELECT * FROM categories WHERE is_active = 1 ORDER BY name");
-                                while ($category = $stmt->fetch()) {
-                                    echo '<li><a href="category.php?id=' . $category['id'] . '">' . htmlspecialchars($category['name']) . '</a></li>';
-                                }
-                            } catch (PDOException $e) {
-                                // Handle error silently
-                            }
-                            ?>
-                        </ul>
+                    <li class="dropdown mega-dropdown">
+                        <a href="products.php"><i class="fas fa-gift"></i> محصولات <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-column">
+                                    <h4><i class="fas fa-gift"></i> گیفت کارت‌ها</h4>
+                                    <ul>
+                                        <li><a href="category.php?cat=steam">Steam گیفت کارت</a></li>
+                                        <li><a href="category.php?cat=google-play">Google Play گیفت کارت</a></li>
+                                        <li><a href="category.php?cat=apple-store">Apple Store گیفت کارت</a></li>
+                                        <li><a href="category.php?cat=amazon">Amazon گیفت کارت</a></li>
+                                        <li><a href="category.php?cat=playstation">PlayStation گیفت کارت</a></li>
+                                        <li><a href="category.php?cat=xbox">Xbox گیفت کارت</a></li>
+                                        <li><a href="category.php?cat=netflix">Netflix گیفت کارت</a></li>
+                                        <li><a href="category.php?cat=spotify">Spotify گیفت کارت</a></li>
+                                        <li><a href="category.php?cat=discord">Discord Nitro گیفت کارت</a></li>
+                                        <li><a href="category.php?cat=youtube">YouTube Premium گیفت کارت</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="mega-menu-column">
+                                    <h4><i class="fas fa-mobile-alt"></i> پرداخت‌های درون برنامه‌ای</h4>
+                                    <ul>
+                                        <li><a href="category.php?cat=pubg-uc">PUBG UC خرید</a></li>
+                                        <li><a href="category.php?cat=free-fire">Free Fire الماس</a></li>
+                                        <li><a href="category.php?cat=clash-of-clans">Clash of Clans جم</a></li>
+                                        <li><a href="category.php?cat=clash-royale">Clash Royale جم</a></li>
+                                        <li><a href="category.php?cat=fortnite-vbucks">Fortnite V-Bucks</a></li>
+                                        <li><a href="category.php?cat=genshin-impact">Genshin Impact Genesis</a></li>
+                                        <li><a href="category.php?cat=mobile-legends">Mobile Legends الماس</a></li>
+                                        <li><a href="category.php?cat=brawl-stars">Brawl Stars جم</a></li>
+                                        <li><a href="category.php?cat=coin-master">Coin Master سکه</a></li>
+                                        <li><a href="category.php?cat=roblox">Roblox Robux</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="mega-menu-column">
+                                    <h4><i class="fas fa-gamepad"></i> گیم‌ها</h4>
+                                    <ul>
+                                        <li><a href="category.php?cat=pc-games">بازی‌های PC</a></li>
+                                        <li><a href="category.php?cat=steam-games">بازی‌های Steam</a></li>
+                                        <li><a href="category.php?cat=origin-games">بازی‌های Origin</a></li>
+                                        <li><a href="category.php?cat=ubisoft-games">بازی‌های Ubisoft</a></li>
+                                        <li><a href="category.php?cat=epic-games">بازی‌های Epic Games</a></li>
+                                        <li><a href="category.php?cat=psn-games">بازی‌های PlayStation</a></li>
+                                        <li><a href="category.php?cat=xbox-games">بازی‌های Xbox</a></li>
+                                        <li><a href="category.php?cat=nintendo-games">بازی‌های Nintendo</a></li>
+                                        <li><a href="category.php?cat=android-games">بازی‌های Android</a></li>
+                                        <li><a href="category.php?cat=ios-games">بازی‌های iOS</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="mega-menu-column">
+                                    <h4><i class="fas fa-shopping-cart"></i> خرید‌های دیگر</h4>
+                                    <ul>
+                                        <li><a href="category.php?cat=vpn">VPN خدمات</a></li>
+                                        <li><a href="category.php?cat=antivirus">آنتی ویروس</a></li>
+                                        <li><a href="category.php?cat=software">نرم افزارها</a></li>
+                                        <li><a href="category.php?cat=accounts">اکانت‌های پریمیوم</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>
-                    <li><a href="brands.php"><i class="fas fa-tags"></i> برندها</a></li>
-                    <li><a href="offers.php"><i class="fas fa-fire"></i> تخفیف ها</a></li>
+                    <li><a href="offers.php"><i class="fas fa-fire"></i> تخفیف‌ها</a></li>
                     <li><a href="about.php"><i class="fas fa-info-circle"></i> درباره ما</a></li>
                     <li><a href="contact.php"><i class="fas fa-phone"></i> تماس با ما</a></li>
                 </ul>
@@ -81,4 +129,4 @@
         </div>
     </header>
 
-    <main class="main-content">
+    <main>
