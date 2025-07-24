@@ -36,7 +36,7 @@ if (isset($_SESSION['user_id'])) {
     }
 }
 
-require_once 'includes/header_new.php';
+require_once 'includes/header.php';
 ?>
 
 <div class="container">
@@ -382,4 +382,4 @@ function showNotification(message, type) {
 }
 </script>
 
-<?php require_once 'includes/footer_new.php'; ?>
+<?php require_once 'includes/footer.php'; ?>
