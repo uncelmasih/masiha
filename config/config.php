@@ -1,44 +1,73 @@
 <?php
 session_start();
 
-// Security configurations
-define('SITE_URL', 'http://yoursite.com');
-define('SITE_NAME', 'گیمینگ استور');
-define('ADMIN_EMAIL', 'admin@yoursite.com');
+// Include database connection
+require_once 'database.php';
+
+// Site Configuration
+define('SITE_NAME', 'BNG Shop');
+define('SITE_URL', 'https://bngshop.ir');
+define('SITE_EMAIL', 'bngshop@gmail.com');
+define('SITE_PHONE', '09352233616');
+define('SITE_ADDRESS', 'تهران، خیابان ولیعصر');
+
+// Business Hours
+define('BUSINESS_HOURS', 'شنبه تا پنج‌شنبه: 10 صبح تا 11 شب');
+define('DELIVERY_TIME', '1 تا 8 ساعت کاری');
+
+// Payment Gateway
+define('ZARINPAL_MERCHANT', 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'); // ZarinPal Merchant ID
+define('ZARINPAL_GATEWAY', 'https://payment.zarinpal.com/pg/StartPay/');
+define('ZARINPAL_SANDBOX', false); // Set to true for testing
 
 // Security
 define('CSRF_TOKEN_NAME', 'csrf_token');
-define('SESSION_TIMEOUT', 3600); // 1 hour
-
-// File upload settings
-define('MAX_FILE_SIZE', 5 * 1024 * 1024); // 5MB
 define('UPLOAD_PATH', 'uploads/');
+define('MAX_FILE_SIZE', 5 * 1024 * 1024); // 5MB
 
-// Generate CSRF token if not exists
-if (!isset($_SESSION[CSRF_TOKEN_NAME])) {
-    $_SESSION[CSRF_TOKEN_NAME] = bin2hex(random_bytes(32));
+// Email Configuration
+define('SMTP_HOST', 'smtp.gmail.com');
+define('SMTP_PORT', 587);
+define('SMTP_USERNAME', SITE_EMAIL);
+define('SMTP_PASSWORD', ''); // Add your email password here
+
+// Error Reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 0);
+
+// Helper Functions
+function sanitize($data) {
+    return htmlspecialchars(strip_tags(trim($data)));
 }
 
-// Check session timeout
-if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT)) {
-    session_unset();
-    session_destroy();
-    session_start();
-}
-$_SESSION['last_activity'] = time();
-
-// Security functions
-function sanitize_input($data) {
-    return htmlspecialchars(strip_tags(trim($data)), ENT_QUOTES, 'UTF-8');
+function redirect($url) {
+    header("Location: " . $url);
+    exit();
 }
 
-function verify_csrf_token($token) {
-    return isset($_SESSION[CSRF_TOKEN_NAME]) && hash_equals($_SESSION[CSRF_TOKEN_NAME], $token);
+function generateCSRFToken() {
+    if (!isset($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    return $_SESSION['csrf_token'];
 }
 
-function generate_csrf_field() {
-    return '<input type="hidden" name="csrf_token" value="' . $_SESSION[CSRF_TOKEN_NAME] . '">';
+function verifyCSRFToken($token) {
+    return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
 }
 
-require_once 'database.php';
+function formatPrice($price) {
+    return number_format($price) . ' تومان';
+}
+
+function jalaliDate($timestamp = null) {
+    if ($timestamp === null) {
+        $timestamp = time();
+    }
+    // Simple Jalali date conversion (you can use a more advanced library)
+    return date('Y/m/d H:i', $timestamp);
+}
+
+// Auto-generate CSRF token
+generateCSRFToken();
 ?>
