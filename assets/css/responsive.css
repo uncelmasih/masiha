@@ -94,13 +94,20 @@
     }
     
     .main-nav {
-        overflow-x: auto;
+        position: relative;
     }
     
     .main-nav ul {
         flex-wrap: nowrap;
         justify-content: flex-start;
         min-width: max-content;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .main-nav ul::-webkit-scrollbar {
+        display: none;
     }
     
     .main-nav a {
@@ -111,10 +118,15 @@
     
     .dropdown-menu {
         position: static;
-        display: block;
+        display: none;
         box-shadow: none;
         background: rgba(255,255,255,0.1);
         margin-top: 5px;
+        border-radius: 8px;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        display: block;
     }
     
     .hero-section {
@@ -215,15 +227,22 @@
     .form-container {
         padding: 20px;
         margin: 10px;
+        border-radius: 12px;
     }
     
     .form-control {
-        padding: 10px;
+        padding: 12px;
         font-size: 14px;
+        border-radius: 8px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
     }
     
     .table-responsive {
         font-size: 14px;
+        overflow-x: auto;
     }
     
     .table th,
@@ -255,6 +274,7 @@
     .pagination {
         flex-wrap: wrap;
         gap: 5px;
+        justify-content: center;
     }
     
     .pagination a,
@@ -262,6 +282,20 @@
         padding: 8px 12px;
         font-size: 14px;
         margin: 0;
+    }
+    
+    /* Mobile notification adjustments */
+    .notification {
+        right: 10px !important;
+        left: 10px !important;
+        max-width: none !important;
+    }
+    
+    /* Mobile form improvements */
+    .alert {
+        padding: 12px 16px;
+        font-size: 14px;
+        border-radius: 8px;
     }
 }
 
@@ -293,5 +327,16 @@
     
     .form-container {
         padding: 15px;
+        margin: 5px;
+    }
+    
+    .form-control {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 13px;
     }
 }
